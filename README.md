@@ -1,17 +1,6 @@
 # Adaptive-Dual-domain-Learning-for-Underwater-Image-Enhancement
 
-Welcome! This is the official implementation of the paper "Adaptive Dual-domain Learning for Underwater Image Enhancement".
-
-
-## Installation
-
-
-
-
-
-# Adaptive-Dual-domain-Learning-for-Underwater-Image-Enhancement
-
-Official repository for the paper "[Can We Generate Images with CoT? Let's Verify and Reinforce Image Generation Step by Step](https://ojs.aaai.org/index.php/AAAI/article/view/32692)".
+Welcome! This is the official implementation of the paper "[Adaptive Dual-domain Learning for Underwater Image Enhancement](https://ojs.aaai.org/index.php/AAAI/article/view/32692)".
 
 [[📖 Paper](https://ojs.aaai.org/index.php/AAAI/article/view/32692)] [[Checkpoints](xxxxxxx)] [[LSUI Datasets](https://github.com/LintaoPeng/U-shape_Transformer_for_Underwater_Image_Enhancement)]
 
