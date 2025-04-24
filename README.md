@@ -5,37 +5,7 @@ Welcome! This is the official implementation of the paper "Adaptive Dual-domain 
 
 ## Installation
 
-To set up the environment for this project, follow the steps below:
 
-### 1. Create and Activate Conda Environment
-
-```bash
-conda create -n your_env_name python=3.10
-conda activate your_env_name
-```
-
-### 2. Install PyTorch with CUDA Support
-
-```bash
-conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 pytorch-cuda=11.8 -c pytorch -c nvidia
-```
-
-### 3. Install CUDA Compiler (nvcc)
-
-```bash
-conda install -c "nvidia/label/cuda-11.8.0" cuda-nvcc
-```
-
-### 4. Install Additional Dependencies
-
-```bash
-conda install packaging
-pip install timm
-pip install scikit-image
-pip install opencv-python
-pip install causal-conv1d==1.1.1
-pip install mamba-ssm==1.1.1
-```
 
 
 
@@ -69,55 +39,48 @@ Our results demonstrate that these approaches can be effectively adapted and com
     <img src="figs/fig2.jpg" width="100%"> <br>
 </p>
   
-Furthermore, given the pivotal role of reward models in our findings, we propose the ***P***otential ***A***ssessment ***R***eward ***M***odel (***PARM***) and ***PARM++***, specialized for autoregressive image generation:
-
-1. ***PARM*** adaptively assesses each generation step through a potential assessment approach, merging the strengths of existing reward models.
-2. ***PARM++*** further introduces a reflection mechanism to empower generative models to self-correct the previous unsatisfactory image.
-
-<p align="center">
-    <img src="figs/fig3.jpg" width="90%"> <br>
-</p>
 
 ## 💪 Get Started
-### Installation
 
-Clone the repository:
-
-   ```bash
-   git clone https://github.com/ZiyuGuo99/Image-Generation-CoT.git
-   cd Image-Generation-CoT
-   ```
-
-Create a conda environment:
+### 1. Clone the repository:
 
    ```bash
-   conda create -n img_cot python=3.10
-   conda activate img_cot
-   ```
-   Please follow the instructions [here](https://pytorch.org/get-started/locally/) to install both PyTorch and TorchVision dependencies.
-
-   Install additional dependencies:
-   ```bash
-   pip install -r requirements.txt
-   git clone https://github.com/open-mmlab/mmdetection.git
-cd mmdetection; git checkout 2.x
-pip install -v -e .
-git clone https://github.com/LLaVA-VL/LLaVA-NeXT && cd LLaVA-NeXT && pip install -e ".[train]"
+   git clone https://github.com/LintaoPeng/SS-UIE.git
+   cd SS-UIE
    ```
 
-### Prepare Checkpoints
+To set up the environment for this project, follow the steps below:
 
-   - Download reward models and DPO checkpoints from [this link](https://huggingface.co/ZiyuG/Image-Generation-CoT), and put then under `Image-Generation-CoT/ckpts/`.
+### 2. Create and Activate Conda Environment
 
-   - Download the Mask2Former object detector for GenEval evaluation by running following command:
-        ```bash
-        mkdir geneval/evaluation/object
-        bash geneval/evaluation/download_models.sh geneval/evaluation/object
-        ```
+```bash
+conda create -n your_env_name python=3.10
+conda activate your_env_name
+```
 
-### Prepare Training Data
-   - Download training data from [this link](https://huggingface.co/datasets/ZiyuG/Image-Generation-CoT), and put then under `Image-Generation-CoT/data/`.
-   
+### 3. Install PyTorch with CUDA Support
+
+```bash
+conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 pytorch-cuda=11.8 -c pytorch -c nvidia
+```
+
+### 3. Install CUDA Compiler (nvcc)
+
+```bash
+conda install -c "nvidia/label/cuda-11.8.0" cuda-nvcc
+```
+
+### 4. Install Additional Dependencies
+
+```bash
+conda install packaging
+pip install timm
+pip install scikit-image
+pip install opencv-python
+pip install causal-conv1d==1.1.1
+pip install mamba-ssm==1.1.1
+```
+ 
 
 ### 🚀 Training 
 #### Training ORM
@@ -221,14 +184,14 @@ torchrun --nnodes=1 --nproc_per_node=8 --node_rank=0 --master_port=12475 main.py
 If you find this project useful for your research or applications, please kindly cite using this BibTeX:
 
 ```latex
-@misc{guo2025generateimagescotlets,
-      title={Can We Generate Images with CoT? Let's Verify and Reinforce Image Generation Step by Step}, 
-      author={Ziyu Guo and Renrui Zhang and Chengzhuo Tong and Zhizheng Zhao and Peng Gao and Hongsheng Li and Pheng-Ann Heng},
-      year={2025},
-      eprint={2501.13926},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2501.13926}, 
+@inproceedings{peng2025adaptive,
+  title={Adaptive Dual-domain Learning for Underwater Image Enhancement},
+  author={Peng, Lintao and Bian, Liheng},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={6},
+  pages={6461--6469},
+  year={2025}
 }
 ```
 
