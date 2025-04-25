@@ -70,6 +70,14 @@ pip install causal-conv1d==1.1.1
 pip install mamba-ssm==1.1.1
 ```
 
+If you cannot install causal-conv1d and mamba-ssm, you can download the whl file we provide and install it directly using the local whl file. The download link is [causal-conv1d](https://drive.google.com/file/d/1Os8ibqmPF6ldN1EBBruY-90R8XERzG1K/view?usp=sharing) and [mamba-ssm](https://drive.google.com/file/d/1qj7VwDPMpCo0bpJLm4KLGwoCZhpAQenx/view?usp=sharing). Then run,
+
+```bash
+pip install causal_conv1d-1.2.0.post2+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64
+pip install mamba_ssm-1.1.1+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64
+```
+
+
 ### 🚀 Training
 
 If you need to train our U-shape transformer from scratch, you need to download our dataset from [BaiduYun](https://pan.baidu.com/s/1dqB_k6agorQBVVqCda0vjA)(password is lsui) or [GoogleDrive](https://drive.google.com/file/d/10gD4s12uJxCHcuFdX9Khkv37zzBwNFbL/view?usp=sharing), and then randomly select 3879 picture pairs as the training set to replace the data folder, and the remaining 400 as the test set to replace the test folder. The dataset divided by the author can be downloaded from [BaiduYun](https://pan.baidu.com/s/1xjc8hHc6IkUwg3cuPTogxg )(password is lsui).
