@@ -17,12 +17,12 @@ We propose a novel UIE method based on spatial-spectral dual-domain adaptive lea
     <img src="figs/method.png" width="90%"> <br>
 </p>
 
-We focus on three CoT reasoning techniques:
-1. ***Scaling Test-time Computation*** for verification (ORM, PRM, and our proposed PARM and PARM++)
-2. ***Aligning Model Preferences*** with Direct Preference Optimization (DPO)
-3. ***Integrating These Techniques*** for complementary effects
+The main contributions of our paper are as follows:
+1. Our proposed MCSS and SWSA module can obtain the spatial-wise and spectral-wise global receptive fields with linear complexity, respectively, thereby modeling the degradation levels in different spatial regions and spectral bands.
+2. We combined MCSS and SWSA in parallel to form an SS-block, which can reinforce the network's attention to the spatial regions and spectral bands with serious attenuation, and achieve degradation level-based adaptive UIE.  
+3. The proposed FWL function can narrow the frequency-wise discrepancy, and force the model to restore high-frequency details adaptively without additional memory and computational costs.
 
-Our results demonstrate that these approaches can be effectively adapted and combined to significantly improve the image generation performance:
+Our SS-UIE outperforms SOTA UIE methods in quantitative evaluation and visual comparison with cheaper computational and memory costs.
 
 <p align="center">
     <img src="figs/fig2.jpg" width="100%"> <br>
