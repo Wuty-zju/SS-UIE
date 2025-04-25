@@ -25,7 +25,7 @@ The main contributions of our paper are as follows:
 Our SS-UIE outperforms SOTA UIE methods in quantitative evaluation and visual comparison with cheaper computational and memory costs.
 
 <p align="center">
-    <img src="figs/fig2.jpg" width="100%"> <br>
+    <img src="figs/fig2.png" width="100%"> <br>
 </p>
   
 
