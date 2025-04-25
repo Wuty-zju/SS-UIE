@@ -80,32 +80,17 @@ pip install mamba_ssm-1.1.1+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64
 
 ### 🚀 Training
 
-If you need to train our U-shape transformer from scratch, you need to download our dataset from [BaiduYun](https://pan.baidu.com/s/1dqB_k6agorQBVVqCda0vjA)(password is lsui) or [GoogleDrive](https://drive.google.com/file/d/10gD4s12uJxCHcuFdX9Khkv37zzBwNFbL/view?usp=sharing), and then randomly select 3879 picture pairs as the training set to replace the data folder, and the remaining 400 as the test set to replace the test folder. The dataset divided by the author can be downloaded from [BaiduYun](https://pan.baidu.com/s/1xjc8hHc6IkUwg3cuPTogxg )(password is lsui).
+If you need to train our SS-UIE from scratch, you need to download the LSUI dataset from [BaiduYun](https://pan.baidu.com/s/1dqB_k6agorQBVVqCda0vjA)(password is lsui) or [GoogleDrive](https://drive.google.com/file/d/10gD4s12uJxCHcuFdX9Khkv37zzBwNFbL/view?usp=sharing), and then randomly select 3879 picture pairs as the training set to replace the data folder, and the remaining 400 as the test set to replace the test folder. The dataset divided by the author can be downloaded from [BaiduYun](https://pan.baidu.com/s/1xjc8hHc6IkUwg3cuPTogxg )(password is lsui).
 
-Then, run the `train.ipynb` file with Jupiter notebook, and the trained model weight file will be automatically saved in saved_ Models folder. As described in the paper, we recommend you use L2 loss for the first 600 epochs and L1 loss for the last 200 epochs.
+Then, run the `train.py`, and the trained model weight file will be automatically saved in saved_ Models folder. 
 
-Environmental requirements:
 
-- Python 3.7 or a newer version
-
-- Pytorch 1.7 0r a newer version
-
-- CUDA 10.1 or a newer version
-
-- OpenCV 4.5.3 or a newer version
-
-- Jupyter Notebook
-
-Or you can install from the requirements.txt using
-```angular2html
-pip install -r requirements.txt
-```
 
 ## 📊 Testing
-For your convenience, we provide some example datasets (~20Mb) in `./test`.  You can download the pretrain models in [BaiduYun](https://pan.baidu.com/s/1E09432Bi-Fpm6Dv1veUCMQ?pwd=CKPT) with the password CKPT or in [Google Drive](https://drive.google.com/file/d/19a_kDJTT5S96kzwQntEMhSxAPYw4xY2P/view?usp=sharing
+For your convenience, we provide some example datasets in `./data` folder.  You can download the pretrain models in [BaiduYun](https://pan.baidu.com/s/1E09432Bi-Fpm6Dv1veUCMQ?pwd=CKPT) with the password CKPT or in [Google Drive](https://drive.google.com/file/d/19a_kDJTT5S96kzwQntEMhSxAPYw4xY2P/view?usp=sharing
 ). 
 
-After downloading, extract the pretrained model into the project folder and replace the `./saved_models` folder, and then run `test.ipynb`. The code will use the pretrained model to automatically process all the images in the `./test/input` folder and output the results to the `./test/output` folder. In addition, the output result will automatically calculate the PSNR value with the reference image.
+After downloading, extract the pretrained model into the project folder and replace the `./saved_models` folder, and then run `test.ipynb`. The code will use the pretrained model to automatically process all the images in the `./data/test/input` folder and output the results to the `./data/test/output` folder. 
 
 ## Dataset
 The LSUI is a large-scale underwater image (LSUI) dataset, which involves richer underwater scenes (lighting conditions, water types and target categories) and better visual quality reference images than the existing ones. You can download it from [BaiduYun](https://pan.baidu.com/s/1dqB_k6agorQBVVqCda0vjA)(password is lsui) or [GoogleDrive](https://drive.google.com/file/d/1YxyagMCbApON8dRdiQTaQG65g3tnZkPt/view?usp=sharing). If you want to use the LSUI dataset, please cite our [[paper\]](https://ieeexplore.ieee.org/abstract/document/10129222)
