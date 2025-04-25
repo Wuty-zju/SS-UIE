@@ -125,6 +125,7 @@ If you find this project useful for your research or applications, please kindly
 
 ## 🧠 Related Work
 
+- **[U-shape]** [U-shape Transformer for Underwater Image Enhancement](https://github.com/LintaoPeng/U-shape_Transformer_for_Underwater_Image_Enhancement)
 
 
 
