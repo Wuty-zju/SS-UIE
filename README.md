@@ -69,104 +69,42 @@ pip install opencv-python
 pip install causal-conv1d==1.1.1
 pip install mamba-ssm==1.1.1
 ```
- 
 
-### 🚀 Training 
-#### Training ORM
-To fine-tune the ORM model, run the following command:
-```
-bash scripts/orm_ft.sh
-```
-#### Training PARM
-To train the PARM model, run the following command:
-```
-bash scripts/parm.sh
-```
-#### Training DPO
-To train Show-o with DPO, run the following command:
-```
-bash scripts/dpo.sh 
+### 🚀 Training
+
+If you need to train our U-shape transformer from scratch, you need to download our dataset from [BaiduYun](https://pan.baidu.com/s/1dqB_k6agorQBVVqCda0vjA)(password is lsui) or [GoogleDrive](https://drive.google.com/file/d/10gD4s12uJxCHcuFdX9Khkv37zzBwNFbL/view?usp=sharing), and then randomly select 3879 picture pairs as the training set to replace the data folder, and the remaining 400 as the test set to replace the test folder. The dataset divided by the author can be downloaded from [BaiduYun](https://pan.baidu.com/s/1xjc8hHc6IkUwg3cuPTogxg )(password is lsui).
+
+Then, run the `train.ipynb` file with Jupiter notebook, and the trained model weight file will be automatically saved in saved_ Models folder. As described in the paper, we recommend you use L2 loss for the first 600 epochs and L1 loss for the last 200 epochs.
+
+Environmental requirements:
+
+- Python 3.7 or a newer version
+
+- Pytorch 1.7 0r a newer version
+
+- CUDA 10.1 or a newer version
+
+- OpenCV 4.5.3 or a newer version
+
+- Jupyter Notebook
+
+Or you can install from the requirements.txt using
+```angular2html
+pip install -r requirements.txt
 ```
 
-### 📊 Evaluation              
-#### 0. Baseline Model ([Show-o](https://github.com/showlab/Show-o)) 🎨
-Run the following command to use the baseline model:
-```
-torchrun --nnodes=1 --nproc_per_node=8 --node_rank=0 --master_port=12475 main.py \
---prompts_file geneval/prompts/generation_prompts.txt \
---metadata_file geneval/prompts/evaluation_metadata.jsonl \
---config config.yaml 
-```
-#### 1. Scaling Test-time Computation 📈
+## 📊 Testing
+For your convenience, we provide some example datasets (~20Mb) in `./test`.  You can download the pretrain models in [BaiduYun](https://pan.baidu.com/s/1nxmlu_Qs8YNz0NqshNS_ZA) with the password tdg9 or in [Google Drive](https://drive.google.com/file/d/19a_kDJTT5S96kzwQntEMhSxAPYw4xY2P/view?usp=sharing
+). 
 
-##### 1.1. Zero-shot ORM
-Run the following command to use the zero-shot ORM:
-```
-torchrun --nnodes=1 --nproc_per_node=8 --node_rank=0 --master_port=12475 main.py \
---prompts_file geneval/prompts/generation_prompts.txt \
---metadata_file geneval/prompts/evaluation_metadata.jsonl \
---config config.yaml \
---reward_model orm_zs 
-```
-##### 1.2. Fine-tuned ORM
-Run the following command to use the fine-tuned ORM:
-```
-torchrun --nnodes=1 --nproc_per_node=8 --node_rank=0 --master_port=12475 main.py \
---prompts_file geneval/prompts/generation_prompts.txt \
---metadata_file geneval/prompts/evaluation_metadata.jsonl \
---config config.yaml \
---reward_model orm_ft
-```
-##### 1.3. PARM
-Run the following command to use PARM:
-```
-torchrun --nnodes=1 --nproc_per_node=8 --node_rank=0 --master_port=12475 main.py \
---prompts_file geneval/prompts/generation_prompts.txt \
---metadata_file geneval/prompts/evaluation_metadata.jsonl \
---config config.yaml \
---reward_model parm 
-```
-#### 2. Preference Alignment with DPO 🔧
+After downloading, extract the pretrained model into the project folder and replace the `./saved_models` folder, and then run `test.ipynb`. The code will use the pretrained model to automatically process all the images in the `./test/input` folder and output the results to the `./test/output` folder. In addition, the output result will automatically calculate the PSNR value with the reference image.
 
-##### 2.1. Initial DPO
-Run the following command to use intial DPO:
-```
-torchrun --nnodes=1 --nproc_per_node=8 --node_rank=0 --master_port=12475 main.py \
---prompts_file geneval/prompts/generation_prompts.txt \
---metadata_file geneval/prompts/evaluation_metadata.jsonl \
---config config.yaml \
---dpo_model dpo
-```
-##### 2.2. Iterative DPO
-Run the following command to use iterative DPO:
-```
-torchrun --nnodes=1 --nproc_per_node=8 --node_rank=0 --master_port=12475 main.py \
---prompts_file geneval/prompts/generation_prompts.txt \
---metadata_file geneval/prompts/evaluation_metadata.jsonl \
---config config.yaml \
---dpo_model dpo_iter
-```
-##### 2.3. Iterative DPO with PARM Guidance
-Run the following command to use iterative DPO with PARM guidance:
-```
-torchrun --nnodes=1 --nproc_per_node=8 --node_rank=0 --master_port=12475 main.py \
---prompts_file geneval/prompts/generation_prompts.txt \
---metadata_file geneval/prompts/evaluation_metadata.jsonl \
---config config.yaml \
---dpo_model dpo_iter_parm_gudie
-```
-#### 3. Reasoning Strategy Integration 🧩
+## Dataset
+The LSUI is a large-scale underwater image (LSUI) dataset, which involves richer underwater scenes (lighting conditions, water types and target categories) and better visual quality reference images than the existing ones. You can download it from [BaiduYun](https://pan.baidu.com/s/1dqB_k6agorQBVVqCda0vjA)(password is lsui) or [GoogleDrive](https://drive.google.com/file/d/10gD4s12uJxCHcuFdX9Khkv37zzBwNFbL/view?usp=sharing). If you want to use the LSUI dataset, please cite our [[paper\]](https://ieeexplore.ieee.org/abstract/document/10129222)
 
-##### 3.1. Iterative DPO with PARM Guidance + PARM
-Run the following command to combine iterative DPO with PARM guidance and PARM:
-```
-torchrun --nnodes=1 --nproc_per_node=8 --node_rank=0 --master_port=12475 main.py \
---prompts_file geneval/prompts/generation_prompts.txt \
---metadata_file geneval/prompts/evaluation_metadata.jsonl \
---config config.yaml \
---reward_model parm \
---dpo_model dpo_iter_parm_gudie
-```
+
+
+
 
 ## :white_check_mark: Citation
 
