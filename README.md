@@ -5,7 +5,7 @@ Welcome! This is the official implementation of the paper "[Adaptive Dual-domain
 [[📖 Paper](https://ojs.aaai.org/index.php/AAAI/article/view/32692)]  [[LSUI Datasets](https://github.com/LintaoPeng/U-shape_Transformer_for_Underwater_Image_Enhancement)]
 
 ## 💥 News
-- **[2025.04]** We release the training code and data for SS-UIE 🔧
+- **[2025.04]** We release the code and data for SS-UIE 🔧
 - **[2024.12]** The conference paper is accepted by **AAAI 2025** 🎉
 - **[2024.07]** The conference paper is submitted to AAAI 2025 🚀
 
