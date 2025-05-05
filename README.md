@@ -87,8 +87,7 @@ Then, run the `train.py`, and the trained model weight file will be automaticall
 
 
 ## 📊 Testing
-For your convenience, we provide some example datasets in `./data` folder.  You can download the pretrain models in [BaiduYun](https://pan.baidu.com/s/1E09432Bi-Fpm6Dv1veUCMQ?pwd=CKPT) with the password CKPT or in [Google Drive](https://drive.google.com/file/d/19a_kDJTT5S96kzwQntEMhSxAPYw4xY2P/view?usp=sharing
-). 
+For your convenience, we provide some example datasets in `./data` folder.  You can download the pretrain models in [BaiduYun](https://pan.baidu.com/s/1E09432Bi-Fpm6Dv1veUCMQ?pwd=CKPT) with the password CKPT or in [Google Drive](https://drive.google.com/file/d/1YxyagMCbApON8dRdiQTaQG65g3tnZkPt/view?usp=sharing). 
 
 After downloading, extract the pretrained model into the project folder and replace the `./saved_models` folder, and then run `test.ipynb`. The code will use the pretrained model to automatically process all the images in the `./data/Test_400/input` folder and output the results to the `./data/Test_400/output` folder. 
 
